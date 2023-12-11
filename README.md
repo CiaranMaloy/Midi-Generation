@@ -40,6 +40,8 @@ Provide a timeline for the project, highlighting milestones and deadlines.
   - Task 2
   - ...
 
-## Getting Started
+## Milestones 
+### Milestone 1 (todo)
+Have a working website that a user uploads a midi file to, and is given an option to download a reversed version of that midi file.
 
 TODO
