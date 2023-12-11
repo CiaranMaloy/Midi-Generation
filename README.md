@@ -10,8 +10,6 @@ this is currently an empty repo for a project which will be a simple website whi
 - [Project Structure](#project-structure)
 - [Timeline](#timeline)
 - [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
