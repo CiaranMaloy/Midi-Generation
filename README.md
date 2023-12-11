@@ -36,7 +36,7 @@ Provide a timeline for the project, highlighting milestones and deadlines.
   - Task 4 - settle on a modern ML technique to generate a useful midi output
 
 - **Phase 2: January 2023**
-  - Task 1 
+  - Task 1 - Have working 1st iteration of midi generation algorithm
   - Task 2
   - ...
 
