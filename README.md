@@ -9,7 +9,7 @@ this is currently an empty repo for a project which will be a simple website whi
 - [Key Features](#key-features)
 - [Project Structure](#project-structure)
 - [Timeline](#timeline)
-- [Getting Started](#getting-started)
+- [Milestones](#milestones)
 
 ## Project Overview
 
