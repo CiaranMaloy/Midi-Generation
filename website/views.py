@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, flash
+from flask import Blueprint, render_template, request, redirect, flash, url_for
 #from flask_login import login_required, current_user
 import json
 from datetime import datetime
@@ -28,7 +28,7 @@ def reverse():
 
     return render_template('reverse.html')
 
-@views.route('/upload', methods=['POST'])
+@views.route('/upload', methods=['POST', 'GET'])
 def upload_file():
     if 'midiFile' not in request.files:
         flash('No file part')
@@ -43,4 +43,4 @@ def upload_file():
         # filename = secure_filename(file.filename)
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         flash('File successfully uploaded')
-        return redirect(request.url)
+        return redirect(url_for('views.reverse'))
