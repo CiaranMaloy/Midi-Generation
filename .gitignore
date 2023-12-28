@@ -1,3 +1,10 @@
+# large amounds of data
+dataset
+dataset/
+
+# other 
+.DS_Store
+
 # cm
 open_ai_api_key.txt
 .API_KEY/
