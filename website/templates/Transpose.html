@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Transpose{% endblock %}
+
+{% block content %}
+  <h1>Transpose midi</h1>
+  <form method="post" enctype="multipart/form-data" action="{{ url_for('views.transpose') }}">
+    <label for="midiFile">Choose a MIDI file:</label>
+    <input type="file" name="midiFile" id="midiFile" accept=".midi, .mid">
+    <br>
+    <button type="submit">Download file</button>
+  </form>
+{% endblock %}

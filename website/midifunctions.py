@@ -79,7 +79,7 @@ def dataframe_to_midi(df):
 
     return midi_data
 
-def transpose(midi_df, semitones=-12):
+def transpose_midi_dataframe(midi_df, semitones=-12):
     #transpose midi clip by a number of semitones
     midi_df['Note Number'] += semitones
     return midi_df
