@@ -1,9 +1,11 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for
+from flask import Blueprint, render_template, request, redirect, flash, url_for, send_file
 import os
 from werkzeug.utils import secure_filename
 #from flask_login import login_required, current_user
 import json
 from datetime import datetime
+from .midifunctions import *
+import tempfile
 
 views = Blueprint('views', __name__)
 
@@ -13,7 +15,6 @@ def home():
 
 @views.route('/reverse-midi', methods=['POST', 'GET'])
 def reverse():
-    #flash('no file selected')
     if request.method == 'POST':
         if 'midiFile' not in request.files:
             flash('No file part', 'error')
@@ -22,29 +23,20 @@ def reverse():
         if file.filename == '':
             flash('No selected file', 'error')
             return redirect(request.url)
-        if file:
-            flash('File successfully uploaded', 'success')
+        
+        reversed_midi_data = reverse_midi(file)
+        print('display and reversed')
+        display_midi_info(reversed_midi_data)
 
-            
-            # Add any additional processing or redirection here if needed
-            return render_template('reverse.html')
+        if reversed_midi_data:
+            return send_file(
+                BytesIO(reversed_midi_data),
+                mimetype='audio/midi',
+                as_attachment=True,
+                download_name='reversed_midi.mid'
+            )
+        else:
+            flash('Error processing MIDI file', 'error')
+            return redirect(request.url)
     
     return render_template('reverse.html')
-
-#@views.route('/upload', methods=['POST', 'GET'])
-#def upload_file():
-#    if 'midiFile' not in request.files:
-#        flash('No file part')
-#    file = request.files['midiFile']
-#    if file.filename == '':
-#        return redirect(request.url)
-#        flash('No selected file')
-#        return redirect(request.url)
-#    if file:
-        # Handle the uploaded file, e.g., save it to a folder or process it
-        # You can use the Werkzeug secure_filename function to secure the filename
-        #filename = secure_filename(file.filename)
-        #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-#        print('File successfully uploaded')
-#        flash('File successfully uploaded')
-#        return redirect(url_for('views.reverse'))
