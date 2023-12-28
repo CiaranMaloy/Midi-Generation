@@ -23,8 +23,7 @@ def reverse():
         if file:
         # here is where any midi processing goes
             midi_df = midi_to_dataframe(file)
-            
-
+            midi_df = transpose(midi_df)
             midi_data = dataframe_to_midi(midi_df)
             midi_bytes = midi_to_bytes(midi_data)
 
