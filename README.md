@@ -30,9 +30,10 @@ Outline the structure of the project, including important directories, files, an
 Provide a timeline for the project, highlighting milestones and deadlines.
 
 - **Phase 1: December 2023**
-  - Task 1 - create project website 
-  - Task 2 - include functionality to upload a midi file
-  - Task 3 - include functionality that allows the download of a randomly generated midi file
+  - Task 1 - create project website (done)
+  - Task 2 - include functionality to upload a midi file (done)
+  - Task 3 - include functionality that allows the download of a midi file (done)
+  - Task 4 - include functionality where there is some alteration/transposition of the midi file before download 
   - Task 4 - settle on a modern ML technique to generate a useful midi output
 
 - **Phase 2: January 2023**
