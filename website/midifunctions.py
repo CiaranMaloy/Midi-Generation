@@ -1,8 +1,5 @@
-import mido
 import tempfile
 import os
-import pretty_midi
-from io import BytesIO
 
 import pretty_midi
 import pandas as pd
@@ -86,7 +83,7 @@ def dataframe_to_midi(df):
 def midi_to_bytes(midi_data):
     #converts a midi file to bytes which is compatable with download
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mid") as temp_file:
-            midi_data.save(temp_file.name)
+            midi_data.write(temp_file.name)
 
         with open(temp_file.name, 'rb') as f:
             midi_file_bytes = f.read()

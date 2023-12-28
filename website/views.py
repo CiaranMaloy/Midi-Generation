@@ -1,11 +1,6 @@
-from flask import Blueprint, render_template, request, redirect, flash, url_for, send_file
-import os
-from werkzeug.utils import secure_filename
+from flask import Blueprint, render_template, request, redirect, flash, send_file
 #from flask_login import login_required, current_user
-import json
-from datetime import datetime
 from .midifunctions import *
-import tempfile
 from io import BytesIO
 
 views = Blueprint('views', __name__)
@@ -25,11 +20,14 @@ def reverse():
             flash('No selected file', 'error')
             return redirect(request.url)
         
+        if file:
         # here is where any midi processing goes
-        midi_file = mido.MidiFile(file=file)
-        midi_bytes = midi_to_bytes(midi_file)
+            midi_df = midi_to_dataframe(file)
+            
 
-        if midi_file:
+            midi_data = dataframe_to_midi(midi_df)
+            midi_bytes = midi_to_bytes(midi_data)
+
             return send_file(
                 BytesIO(midi_bytes),
                 mimetype='audio/midi',
