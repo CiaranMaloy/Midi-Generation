@@ -6,6 +6,7 @@ import json
 from datetime import datetime
 from .midifunctions import *
 import tempfile
+from io import BytesIO
 
 views = Blueprint('views', __name__)
 
@@ -24,13 +25,13 @@ def reverse():
             flash('No selected file', 'error')
             return redirect(request.url)
         
-        reversed_midi_data = reverse_midi(file)
-        print('display and reversed')
-        display_midi_info(reversed_midi_data)
+        # here is where any midi processing goes
+        midi_file = mido.MidiFile(file=file)
+        midi_bytes = midi_to_bytes(midi_file)
 
-        if reversed_midi_data:
+        if midi_file:
             return send_file(
-                BytesIO(reversed_midi_data),
+                BytesIO(midi_bytes),
                 mimetype='audio/midi',
                 as_attachment=True,
                 download_name='reversed_midi.mid'

@@ -1,46 +1,28 @@
 import mido
-from io import BytesIO
 import tempfile
 import os
+import pretty_midi
+from io import BytesIO
 
-def display_midi_info(file_object):
-    try:
-        midi_file = mido.MidiFile(file=file_object)
+def midi_to_pandas():
+    #takes in midi data as a midi file object and stores it as a representation within a pandas dataframe
+    # returns the pandas dataframe
+    return
 
-        print(f"Ticks per beat: {midi_file.ticks_per_beat}")
+def midi_from_pandas():
+    # takes in a pandas dataframe of known format and converts the output to 'midi_data'
+    # which can be passed into midi_to_bytes and downloaded
+    return
+    
 
-        for i, track in enumerate(midi_file.tracks):
-            print(f"Track {i + 1}:")
-            print(track)
-
-    except Exception as e:
-        print(f"Error: {e}")
-
-def reverse_midi(file_obj):
-    try:
-        midi_file = mido.MidiFile(file=file_obj)
-
-        reversed_tracks = []
-        for track in reversed(midi_file.tracks):
-            reversed_messages = [m.copy(time=m.time) for m in reversed(track)]
-            reversed_tracks.append(reversed_messages)
-
-        print(reversed_tracks)
-
-        reversed_midi = mido.MidiFile(ticks_per_beat=midi_file.ticks_per_beat)
-        reversed_midi.tracks.extend(reversed_tracks)
-
+def midi_to_bytes(midi_data):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mid") as temp_file:
-            reversed_midi.save(temp_file.name)
+            midi_data.save(temp_file.name)
 
         with open(temp_file.name, 'rb') as f:
-            reversed_midi_bytes = f.read()
+            midi_file_bytes = f.read()
 
         # Remove the temporary file
         os.remove(temp_file.name)
 
-        return reversed_midi_bytes
-
-    except Exception as e:
-        print(f"Error: {e}")
-        return None
+        return midi_file_bytes
