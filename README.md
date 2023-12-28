@@ -1,7 +1,7 @@
 # Midi-Generation
 
 ## Project description
-this is currently an empty repo for a project which will be a simple website which allows a user to upload a midi file and the website will generate a lead melody which works with the midi audio inputted. 
+this project will be a simple website which allows a user to upload a midi file and the website will generate a lead melody which works with the midi audio inputted. 
 
 ## Table of Contents
 
@@ -42,5 +42,8 @@ Provide a timeline for the project, highlighting milestones and deadlines.
   - ...
 
 ## Milestones 
-### Milestone 1 (todo)
+### Milestone 1 
 Have a working website that a user uploads a midi file to, and is given an option to download an altered version of that midi file. **(Done)**
+
+### Milestone 2 
+Research a method of using modern techniques to auto generate some sort of midi output given the known input
