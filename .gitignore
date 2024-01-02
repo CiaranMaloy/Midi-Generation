@@ -3,6 +3,8 @@ dataset
 dataset/
 Output_dump
 Output_dump/
+database.db
+output.json
 
 # other 
 .DS_Store
