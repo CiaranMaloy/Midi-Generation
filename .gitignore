@@ -1,6 +1,8 @@
 # large amounds of data
 dataset
 dataset/
+Output_dump
+Output_dump/
 
 # other 
 .DS_Store
